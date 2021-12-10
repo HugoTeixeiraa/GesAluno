@@ -113,7 +113,7 @@ function mostrarAlunos(){
 
     fetch('http://localhost:3000/utilizador', options)
     .then(res => res.json())
-    .then(response => alert(response))
+    .then(response => alert(response.text))
     .catch((err) => {
         alert('ocorreu um erro com o pedido')
     })

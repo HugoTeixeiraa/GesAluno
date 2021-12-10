@@ -14,7 +14,7 @@ inserirutilizadorRoute.post('/',(req,res) =>  {
     }
   })*/
     console.log(request.body)
-    responde.json({response : 'Chegou tudo inteiro!'})
+    responde.json({Text : 'Chegou tudo inteiro!'})
 })
 
 module.exports = inserirutilizadorRoute 
