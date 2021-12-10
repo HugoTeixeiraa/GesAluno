@@ -72,6 +72,7 @@ function mostrarAlunos(){
             const telemInt = parseInt(telem)
             console.log(telemInt)
         }
+
     }
 
     let email=document.getElementById('email').value
@@ -80,9 +81,40 @@ function mostrarAlunos(){
     }
 
     let tipo=document.getElementById('tipo').value
-    if(tipo==''){
+    if(tipo=='')
         alert('O campo não pode estar vazio')
-    }
+    else
+        console.log(tipo)
     
+    //criar objeto com os daods recolhidos no form
+    let dadosutilizador={
+        nomeutilizador : nome,
+        moradarua : morada,
+        moradanumero : morada_num,
+        datanascimento : dnasc,
+        telemovel : telem,
+        email : email,
+        idtipo: tipo
+    }
 
+
+
+    //criar um JSON do objeto
+    let jsonDados = JSON.stringify(dadosutilizador)
+
+    //preparar o pedido
+    const options = {
+        method: 'POST',
+        header: {
+            'Content-type' : 'applicatoin/json'
+        },
+        body: jsonDados
+    }
+
+    fetch('http://localhost:3000/utilizador', options)
+    .then(res => res.json())
+    .then(response => alert(response))
+    .catch((err) => {
+        alert('ocorreu um erro com o pedido')
+    })
 }
